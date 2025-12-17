@@ -8,7 +8,7 @@
 export const INSIGHTS = [
   {
     id: 'power-ai',
-    date: '2025 · Q1',
+    date: '2025-12-14',
     kicker: 'Strategic brief',
     title: 'Power is becoming the binding constraint for AI scale-out',
     subtitle:
@@ -66,7 +66,7 @@ export const INSIGHTS = [
 
   {
     id: 'advanced-packaging',
-    date: '2025 · Q1',
+    date: '2025-12-15',
     kicker: 'Supply-chain lens',
     title: 'Advanced packaging is the new “fab capacity” bottleneck',
     subtitle:
@@ -127,7 +127,7 @@ export const INSIGHTS = [
 
   {
     id: 'photonics',
-    date: '2025 · Q1',
+    date: '2025-12-15',
     kicker: 'Frontier theme',
     title: 'Photonics is moving from “research” to “network necessity” for AI clusters',
     subtitle:
@@ -185,7 +185,7 @@ export const INSIGHTS = [
 
   {
     id: 'defense-autonomy',
-    date: '2025 · Q1',
+    date: '2025-12-16',
     kicker: 'Geopolitics & dual-use',
     title: 'Autonomy is redefining the defense–rescue drone stack',
     subtitle:
@@ -243,7 +243,7 @@ export const INSIGHTS = [
 
   {
     id: 'enterprise-rag',
-    date: '2025 · Q1',
+    date: '2025-12-18',
     kicker: 'Enterprise playbook',
     title: 'Enterprise semantic search is moving from “RAG demos” to governance-grade systems',
     subtitle:
