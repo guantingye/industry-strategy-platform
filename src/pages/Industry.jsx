@@ -182,34 +182,53 @@ export default function Industry() {
                   ))}
 
                   {/* Signals */}
+                  {/* Signals */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
                       <div className="text-xs uppercase tracking-widest text-white/55">Signals to watch</div>
-                      <ul className="mt-3 space-y-2">
-                        {active.signals.map((s) => (
-                          <li key={s} className="text-sm text-white/80 flex items-start gap-2">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-white/60" />
-                            <span>{s}</span>
-                          </li>
-                        ))}
+                      <ul className="mt-3 space-y-3">
+                        {(active?.signals || []).map((s, idx) => {
+                          const isObj = s && typeof s === 'object'
+                          const key = isObj ? `${s.k ?? 'signal'}-${idx}` : `${String(s)}-${idx}`
+
+                          return (
+                            <li key={key} className="text-sm text-white/80 flex items-start gap-2">
+                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-white/60" />
+                              {isObj ? (
+                                <span className="flex flex-col gap-1">
+                                  <span className="text-white/85 font-medium">{s.k}</span>
+                                  <span className="text-white/70 leading-relaxed">{s.v}</span>
+                                </span>
+                              ) : (
+                                <span className="leading-relaxed">{String(s)}</span>
+                              )}
+                            </li>
+                          )
+                        })}
                       </ul>
                     </div>
 
                     <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
                       <div className="text-xs uppercase tracking-widest text-white/55">Sources (public)</div>
                       <ul className="mt-3 space-y-2">
-                        {active.sources.map((s) => (
-                          <li key={s.label} className="text-sm text-white/80">
-                            <a
-                              className="underline decoration-white/25 hover:decoration-white/60"
-                              href={s.href}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {s.label}
-                            </a>
-                          </li>
-                        ))}
+                        {(active?.sources || []).map((s, idx) => {
+                          const href = s?.href || s?.url // 同時支援 DB: url 與 UI: href
+                          const label = s?.label || s?.title || `Source ${idx + 1}`
+                          if (!href) return null
+
+                          return (
+                            <li key={`${label}-${idx}`} className="text-sm text-white/80">
+                              <a
+                                className="underline decoration-white/25 hover:decoration-white/60"
+                                href={href}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {label}
+                              </a>
+                            </li>
+                          )
+                        })}
                       </ul>
                     </div>
                   </div>
